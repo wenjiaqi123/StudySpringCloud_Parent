@@ -1,5 +1,10 @@
 package com.gsm.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,4 +21,10 @@ public class Result {
     private String message;
     //返回数据
     private Object data;
+
+    public Result(Boolean flag, Integer code, String message) {
+        this.flag = flag;
+        this.code = code;
+        this.message = message;
+    }
 }
