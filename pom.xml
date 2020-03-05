@@ -11,6 +11,7 @@
     <modules>
         <module>springcloud_common</module>
         <module>springcloud_base</module>
+        <module>springcloud_article</module>
     </modules>
     <!--打包方式，因为是聚合工程，打包pom-->
     <packaging>pom</packaging>
