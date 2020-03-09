@@ -12,6 +12,7 @@
         <module name="springcloud_article" />
         <module name="springcloud_base" />
         <module name="springcloud_common" />
+        <module name="springcloud_mongodb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -24,6 +25,7 @@
       <module name="springcloud_article" options="-parameters" />
       <module name="springcloud_base" options="-parameters" />
       <module name="springcloud_common" options="-parameters" />
+      <module name="springcloud_mongodb" options="-parameters" />
     </option>
   </component>
 </project>
