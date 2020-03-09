@@ -21,8 +21,15 @@ public class MongodbTest {
         MongoCollection<Document> collection = database.getCollection("user");
         //根据集合得到文档（等同于关系型数据库中的行）
         FindIterable<Document> documents = collection.find();
-        documents.forEach((Consumer<? super Document>) i->{
-            System.out.println(i);
+        documents.forEach((Consumer<? super Document>) i -> {
+            System.out.print("_id\t" + i.getString("_id") + "\t\t");
+            System.out.print("id\t" + i.getString("id") + "\t\t");
+            System.out.print("name\t" + i.getString("name") + "\t\t");
+            System.out.print("age\t" + i.getInteger("age") + "\t\t");
+            System.out.print("msg\t" + i.getString("msg") + "\t\t");
+            System.out.println("money\t" + i.getDouble("money"));
         });
+        //关闭客户端
+        client.close();
     }
 }
