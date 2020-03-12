@@ -14,7 +14,8 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public void insert() {
-        User user = User.builder()
+        User user = User
+                .builder()
                 .id(10002)
                 .name("牛大")
                 .age(20)

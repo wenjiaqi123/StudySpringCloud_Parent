@@ -29,4 +29,10 @@ public class CourseServiceImpl implements CourseService {
         }
         return course;
     }
+
+    @Override
+    public Course selectDemo(String id) {
+        Course course = courseDao.selectCourse(id);
+        return course;
+    }
 }

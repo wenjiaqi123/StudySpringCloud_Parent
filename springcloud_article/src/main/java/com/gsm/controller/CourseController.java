@@ -30,4 +30,15 @@ public class CourseController {
                 .build();
         return result;
     }
+
+    @GetMapping("/demo")
+    public Result selectDemo(String id){
+        Course course = courseService.selectDemo(id);
+        Result result = Result.builder()
+                .code(StatusCode.OK)
+                .flag(true)
+                .data(course)
+                .build();
+        return result;
+    }
 }
