@@ -3,6 +3,7 @@ package com.gsm.impl;
 import com.gsm.dao.CourseDao;
 import com.gsm.pojo.Course;
 import com.gsm.service.CourseService;
+import com.gsm.utils.IdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;

@@ -18,7 +18,6 @@ import java.net.NetworkInterface;
  * 12bit    序列号
  * 整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞（由datacenter和机器ID作区分），
  * 效率较高，经测试，snowflake每秒能够产生26万ID左右
- *
  */
 public class IdUtils {
     // 时间起始标记点，作为基准，一般取系统的最近时间（一旦确定不能变动）
@@ -50,15 +49,14 @@ public class IdUtils {
     // 数据标识id部分
     private final long datacenterId;
 
-    public IdUtils(){
+    public IdUtils() {
         this.datacenterId = getDatacenterId(maxDatacenterId);
         this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
     }
+
     /**
-     * @param workerId
-     *            工作机器ID
-     * @param datacenterId
-     *            序列号
+     * @param workerId     工作机器ID
+     * @param datacenterId 序列号
      */
     public IdUtils(long workerId, long datacenterId) {
         if (workerId > maxWorkerId || workerId < 0) {
@@ -70,6 +68,7 @@ public class IdUtils {
         this.workerId = workerId;
         this.datacenterId = datacenterId;
     }
+
     /**
      * 获取下一个ID
      */
@@ -118,14 +117,14 @@ public class IdUtils {
         mpid.append(datacenterId);
         String name = ManagementFactory.getRuntimeMXBean().getName();
         if (!name.isEmpty()) {
-         /*
-          * GET jvmPid
-          */
+            /*
+             * GET jvmPid
+             */
             mpid.append(name.split("@")[0]);
         }
-      /*
-       * MAC + PID 的 hashcode 获取16个低位
-       */
+        /*
+         * MAC + PID 的 hashcode 获取16个低位
+         */
         return (mpid.toString().hashCode() & 0xffff) % (maxWorkerId + 1);
     }
 
@@ -151,5 +150,8 @@ public class IdUtils {
         return id;
     }
 
-
+    public static void main(String[] args) {
+        IdUtils idUtils = new IdUtils();
+        System.out.println(idUtils.nextId());
+    }
 }

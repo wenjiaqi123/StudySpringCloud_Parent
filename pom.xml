@@ -13,6 +13,7 @@
         <module>springcloud_base</module>
         <module>springcloud_article</module>
         <module>springcloud_mongodb</module>
+        <module>springcloud_user</module>
     </modules>
     <!--打包方式，因为是聚合工程，打包pom-->
     <packaging>pom</packaging>

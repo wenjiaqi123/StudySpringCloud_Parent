@@ -4,6 +4,7 @@ import com.gsm.entity.Result;
 import com.gsm.entity.StatusCode;
 import com.gsm.pojo.Course;
 import com.gsm.service.CourseService;
+import com.gsm.utils.IdUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
