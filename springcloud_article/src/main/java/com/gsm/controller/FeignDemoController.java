@@ -19,10 +19,11 @@ public class FeignDemoController {
     @GetMapping("/demo")
     public Result selectDemo(String id){
         System.out.println(id);
-        feignDemo.updateDemo(id);
+        String s = feignDemo.updateDemo(id);
         Result result = Result.builder()
                 .code(StatusCode.OK)
                 .flag(true)
+                .message(s)
                 .build();
         return result;
     }

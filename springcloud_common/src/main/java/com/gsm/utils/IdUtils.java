@@ -53,7 +53,6 @@ public class IdUtils {
         this.datacenterId = getDatacenterId(maxDatacenterId);
         this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
     }
-
     /**
      * @param workerId     工作机器ID
      * @param datacenterId 序列号
@@ -68,7 +67,6 @@ public class IdUtils {
         this.workerId = workerId;
         this.datacenterId = datacenterId;
     }
-
     /**
      * 获取下一个ID
      */

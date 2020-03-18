@@ -1,0 +1,45 @@
+# application.yml 编码是 UTF-8
+#####################################################################
+server:
+  # 该项目启动的端口号
+  port: 10000
+#####################################################################
+spring:
+  # 项目操作
+  application:
+    # 给项目起个名，注意【使用中划线，下划线SpringCloud不支持】
+    name: springcloud-zuul-manager
+#####################################################################
+# Eureka 配置
+eureka:
+  # 客户端配置
+  client:
+    # 表示是否将当前模块注册到服务器上，因为该模块是 client，所以需要，不写默认 true
+    register-with-eureka: true
+    # 表示是否获取注册信息，不写默认 true
+    fetch-registry: true
+    # 表示 Eureka 客户端和服务端交互地址
+    service-url:
+      # Eureka客户端向该地址注册
+      defaultZone: http://127.0.0.1:10086/eureka/
+  # 允许各模块跨域访问
+  instance:
+    prefer-ip-address: true
+###########################################################################
+# 熔断器 配置
+feign:
+  hystrix:
+  # 开启熔断器
+  enabled: true
+###########################################################################
+# 网关配置
+zuul:
+  # 路由规则
+  routes:
+    # 规则名【一般与服务名相同】
+    springcloud-article:
+      # 路由路径
+      path: /article/**
+      # 跳转服务
+      serverid: springcloud-article
+
