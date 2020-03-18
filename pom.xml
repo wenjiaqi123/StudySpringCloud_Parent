@@ -14,6 +14,8 @@
         <module>springcloud_article</module>
         <module>springcloud_mongodb</module>
         <module>springcloud_user</module>
+        <module>springcloud_eureka</module>
+        <module>springcloud_tx</module>
     </modules>
     <!--打包方式，因为是聚合工程，打包pom-->
     <packaging>pom</packaging>
@@ -35,6 +37,19 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
     </properties>
+
+    <dependencyManagement>
+        <!--Eureka 锁定 SpringCloud版本-->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.M9</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!--整合SpringMVC-->
@@ -128,5 +143,24 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
+        <!--配置src/main/java 可以引入 xml-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.html</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 </project>

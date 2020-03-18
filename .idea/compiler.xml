@@ -12,7 +12,9 @@
         <module name="springcloud_article" />
         <module name="springcloud_base" />
         <module name="springcloud_common" />
+        <module name="springcloud_eureka" />
         <module name="springcloud_mongodb" />
+        <module name="springcloud_tx" />
         <module name="springcloud_user" />
       </profile>
     </annotationProcessing>
@@ -26,7 +28,9 @@
       <module name="springcloud_article" options="-parameters" />
       <module name="springcloud_base" options="-parameters" />
       <module name="springcloud_common" options="-parameters" />
+      <module name="springcloud_eureka" options="-parameters" />
       <module name="springcloud_mongodb" options="-parameters" />
+      <module name="springcloud_tx" options="-parameters" />
       <module name="springcloud_user" options="-parameters" />
     </option>
   </component>

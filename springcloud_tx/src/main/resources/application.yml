@@ -2,20 +2,16 @@
 #####################################################################
 server:
   # 该项目启动的端口号
-  port: 9018
-#####################################################################
-# log日志等级,mybatis打印sql
-logging:
-  level:
-    com.gsm.dao: DEBUG
+  port: 9012
 #####################################################################
 spring:
   # 项目操作
   application:
     # 给项目起个名，注意【使用中划线，下划线SpringCloud不支持】
-    name: springcloud-article
+    name: springcloud-tx
   # 数据源
   datasource:
+    id: dataSource
     # 数据源驱动   多个单词之间可以不用中划线，换成大写  【driver-class-name】【driverClassName】
     driver-class-name: com.mysql.jdbc.Driver
     # 数据库url      【时区】serverTimezone=Asia/Shanghai    【连接】useSSL=false&autoReconnect=true   【批量操作】allowMultiQueries=true  【字符编码】characterEncoding=UTF-8
@@ -24,29 +20,25 @@ spring:
     username: root
     # 数据库用户密码
     password: wyxjava123
-  # jpa
   jpa:
     # 数据库类型
     database: mysql
     show-sql: true
-  # redis
-  redis:
-    # 主机ip
-    #host: 106.15.238.19
-    host: 127.0.0.1
-    #端口 不写默认6379
-    port: 6379
 ###########################################################################
 # mybatis 框架
 mybatis:
   # 别名包
-  type-aliases-package: com.gsm.pojo
+  type-aliases-package: com.gsm.model
   # mapper文件位置
   mapper-locations: classpath:com/gsm/dao/*Mapper.xml
   # 配置
   configuration:
     # 数据库列名 user_name 映射pojo userName 格式转换
     map-underscore-to-camel-case: true
+# log日志等级,mybatis打印sql
+logging:
+  level:
+    com.gsm.dao: DEBUG
 ###########################################################################
 # Eureka 配置
 eureka:

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gsm.dao.TxDemoDao">
+    <insert id="insertUser" parameterType="String">
+        insert into sys_user
+        (user_name,
+        iphone_no)
+        values
+        (#{name},
+        "15251922665")
+    </insert>
+</mapper>

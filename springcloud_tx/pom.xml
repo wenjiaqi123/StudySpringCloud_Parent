@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!--父项目坐标-->
     <parent>
         <artifactId>StudySpringCloud_Parent</artifactId>
         <groupId>com.gsm</groupId>
@@ -10,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <!--子模块的项目名-->
-    <artifactId>springcloud_article</artifactId>
+    <artifactId>springcloud_tx</artifactId>
 
     <dependencies>
         <!--引入common-->
@@ -20,22 +18,11 @@
             <artifactId>springcloud_common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--spring-boot-starter-data-redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
 
         <!--该模块作为 Eureka 客户端，导 client 包-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!--该模块要调用其他模块，导入 feign-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
     </dependencies>
 </project>
