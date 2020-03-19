@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/feign")
@@ -24,6 +26,7 @@ public class FeignDemoController {
                 .code(StatusCode.OK)
                 .flag(true)
                 .message(s)
+                .data("1111111" + new Date())
                 .build();
         return result;
     }

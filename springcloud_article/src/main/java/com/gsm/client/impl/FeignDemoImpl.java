@@ -1,13 +1,16 @@
 package com.gsm.client.impl;
 
 import com.gsm.client.FeignDemo;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+import java.util.Date;
+
+@Service
 public class FeignDemoImpl implements FeignDemo {
     @Override
     public String updateDemo(String id) {
+        System.out.println(new Date());
         System.out.println("1111111");
-        return "yes";
+        return "我是熔断器";
     }
 }

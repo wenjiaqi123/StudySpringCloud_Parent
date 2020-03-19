@@ -2,7 +2,7 @@
 #####################################################################
 server:
   # 该项目启动的端口号
-  port: 10000
+  port: 10001
 #####################################################################
 spring:
   # 项目操作
@@ -42,4 +42,21 @@ zuul:
       path: /article/**
       # 跳转服务
       serverid: springcloud-article
+# zuul 服务发现
+ribbon:
+  # 方法调用处理时间
+  ReadTimeout: 6000
+  # 连接时间
+  ConnectTimeout: 6000
+  # 最大自动重试次数
+  maxAutoRetries: 2
+  # 换实例重试次数
+  MaxAutoRetriesNextServer: 2
+hystric:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
 

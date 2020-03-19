@@ -1,4 +1,4 @@
-# application.yml 编码是 UTF-8
+# app.yml 编码是 UTF-8
 #####################################################################
 server:
   # 该项目启动的端口号
@@ -67,5 +67,5 @@ eureka:
 # 熔断器 配置
 feign:
   hystrix:
-  # 开启熔断器
-  enabled: true
+    # 开启熔断器
+    enabled: true

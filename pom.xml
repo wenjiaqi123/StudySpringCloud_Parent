@@ -18,6 +18,7 @@
         <module>springcloud_tx</module>
         <module>springcloud_zuul_web</module>
         <module>springcloud_zuul_manager</module>
+        <module>springcloud_config</module>
     </modules>
     <!--打包方式，因为是聚合工程，打包pom-->
     <packaging>pom</packaging>

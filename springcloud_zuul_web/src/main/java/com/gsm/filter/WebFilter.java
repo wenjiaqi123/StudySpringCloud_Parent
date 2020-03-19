@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * zuul网关过滤器
  */
 @Component
+@SuppressWarnings("all")
 public class WebFilter extends ZuulFilter {
     @Override
     public String filterType() {

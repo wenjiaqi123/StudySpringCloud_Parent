@@ -1,13 +1,17 @@
 package com.gsm.filter;
 
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * zuul网关过滤器
  */
 @Component
+@SuppressWarnings("all")
 public class ManagerFilter extends ZuulFilter {
     @Override
     public String filterType() {
@@ -44,7 +48,19 @@ public class ManagerFilter extends ZuulFilter {
         /**
          * 过滤器的具体逻辑
          */
-
+        //得到Request上下文
+        RequestContext currentContext = RequestContext.getCurrentContext();
+        //得到request域
+        HttpServletRequest request = currentContext.getRequest();
+        //得到头信息
+        String header = request.getHeader("Authorization");
+        //判断是否有头信息
+        if (header != null && !"".equals(header)) {
+            //头信息转发
+            currentContext.addZuulRequestHeader("Authorization", header);
+        }
+        //终止运行
+        //requestContext.setSendZuulResponse(false);
         return null;
     }
 }

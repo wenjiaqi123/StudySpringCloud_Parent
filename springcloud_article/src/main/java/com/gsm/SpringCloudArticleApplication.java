@@ -7,12 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.openfeign.FeignClientsConfiguration;
 import org.springframework.context.annotation.Bean;
 
 //  @EnableDiscoveryClient  发现服务
 //  @EnableFeignClients  采用 Feign方式发现服务
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(defaultConfiguration = FeignClientsConfiguration.class)
 //  @EnableEurekaClient 表示该模块是 Eureka 客户端
 @EnableEurekaClient
 //  @MapperScan包扫描，配置该注解，Dao层里可以不加注解
